@@ -1,9 +1,6 @@
 # Dataflow-Fundamentals
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Lab-Version](https://img.shields.io/badge/Labs%20core%20version-1.0.1-0098B7.svg)](#)
-[![Terraform/Core Version](https://img.shields.io/badge/TF%20version-1.0.11-844fba.svg)](#)
-[![AWS CLI/SDK Version](https://img.shields.io/badge/awscli%20version-2.0.27-ff9900.svg)](#)
 
 
 ## Introduction
