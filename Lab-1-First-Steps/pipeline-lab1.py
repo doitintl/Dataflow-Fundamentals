@@ -30,12 +30,12 @@ def run(argv=None):
         lines = p | 'Read' >> ReadFromCsv(path=known_args.input, header=0)
 
         results = (
-                # Step 1: Create Pardo that yield a Key, Value pair.
+                # Step 1: Create DoFn that yield a Key, Value pair.
                 #         The key needs to be the track id and value the dict object
 
                 # Step 2: Group all the records based on TrackId(Key)
-
-                # Step 3: Create an Pardo That counts the amount op plays(Action 1)
+    
+                # Step 3: Create a DoFn That counts the amount op plays(Action 1)
         )
 
         results | 'Write' >> WriteToText(known_args.output)
