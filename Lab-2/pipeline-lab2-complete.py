@@ -3,8 +3,11 @@ import json
 import logging
 
 import apache_beam as beam
+from apache_beam import io, WindowInto
 from apache_beam.io import fileio
 from apache_beam.options.pipeline_options import PipelineOptions
+from apache_beam.transforms.trigger import AfterWatermark, AccumulationMode
+from apache_beam.transforms.window import FixedWindows, SlidingWindows
 
 
 class ApplyKey(beam.DoFn):
@@ -50,23 +53,27 @@ def run(argv=None):
     with beam.Pipeline(options=pipeline_options) as p:
         # Read the CSV file into a PCollection.
         lines = (p
-                 # Read from pubsub
-                 # transform row to Key value pait
+                 | "Read from Pub/Sub" >> io.ReadFromPubSub(subscription=known_args.input_subscription)
+                 | "KV" >> beam.ParDo(ApplyKey())
         )
 
         results_fixed_window = (
-                # apply fixed window of 5 minutes
-                # group by key
-                # count amount of plays
+                lines
+                | "Fixed Window" >> WindowInto(FixedWindows(5*60),
+                                         trigger=AfterWatermark(),
+                                         accumulation_mode=AccumulationMode.ACCUMULATING)
+                | 'Fixed Group And Sum' >> beam.GroupByKey()
+                | 'Fixed Count Actions' >> beam.ParDo(CountActions())
         )
 
         results_sliding_window = (
-            # apply fixed window of 5 minutes with a minute interval
-            # group by key
-            # count amount of plays
-
+                lines
+                | "Sliding Window" >> WindowInto(SlidingWindows(5*60, 60),
+                                         trigger=AfterWatermark(),
+                                         accumulation_mode=AccumulationMode.ACCUMULATING)
+                | 'Sliding GroupAndSum' >> beam.GroupByKey()
+                | 'Sliding Count Actions' >> beam.ParDo(CountActions())
         )
-
         pathFix= "Fixed" + known_args.output
         pathSliding= "Sliding" + known_args.output
         results_fixed_window | 'Write Fix' >> fileio.WriteToFiles(path=pathFix)
