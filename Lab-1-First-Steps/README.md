@@ -38,7 +38,7 @@ or
 ## Run the pipeline on dataflow
 
 1. First we need to create an Input and an output bucket and copy the data file from sample data in the input bucket.
-2. You can also run the pipeline on dataflow with this command:
+2. You can also run the pipeline on dataflow with this command: (replace the DATAFLOW_REGION,BUCKET_NAME and PROJECT_ID variables)
 
 ```bash
 python -m pipeline-lab1.py \

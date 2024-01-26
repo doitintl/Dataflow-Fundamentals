@@ -43,7 +43,7 @@ def run(argv=None):
     parser.add_argument(
         '--output',
         dest='output',
-        default='output.txt',
+        default='',
         help='Output file to write results to.')
     known_args, pipeline_args = parser.parse_known_args(argv)
 
@@ -74,8 +74,8 @@ def run(argv=None):
                 | 'Sliding GroupAndSum' >> beam.GroupByKey()
                 | 'Sliding Count Actions' >> beam.ParDo(CountActions())
         )
-        pathFix= "Fixed" + known_args.output
-        pathSliding= "Sliding" + known_args.output
+        pathFix= known_args.output + "Fixed-output.txt"
+        pathSliding=  known_args.output + "Sliding-output.txt"
         results_fixed_window | 'Write Fix' >> fileio.WriteToFiles(path=pathFix)
         results_sliding_window | 'Write Sliding' >> fileio.WriteToFiles(path=pathSliding)
 
