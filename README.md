@@ -17,12 +17,8 @@ The second day we will dive deeper in streaming pipelines and the different mech
 ``` 
 [root]
   |
-  └ Lab-1-First-Steps              | We create our own Batch Pipeline. 
-  └ Lab-2-First-Steps              | We create our Batch Pipeline. 
-  |--------------------------------|-----------------------------------------------------------------------------------
-  └ Datasets                       | target for the sample datasets we are going to use to learn Beam. 
-  |--------------------------------|-----------------------------------------------------------------------------------
-  └ scripts                        | target for upcoming helper scripts for all of our labs + tf init 
+  └ Lab-1-Lab-1-batch-pipeline     | We create our own Batch Pipeline. 
+  └ Lab-2-windowing                | We create our Batch Pipeline. 
   |--------------------------------|-----------------------------------------------------------------------------------
 ```
 
@@ -30,8 +26,8 @@ The second day we will dive deeper in streaming pipelines and the different mech
 
 | Lab/Folder                       | Description                                                   |
 |----------------------------------|---------------------------------------------------------------|
-| [df-lab-01](./Lab-1-First-Steps) | Batch pipeline that calculates the how often a song is played |
-| [df-lab-02](./Lab-2)             | UNDER CONTRUCTION                                             |
+| [df-lab-01](./Lab-1-batch-pipeline) | Batch pipeline that calculates the how often a song is played |
+| [df-lab-02](./Lab-2-windowing)             | UNDER CONTRUCTION                                             |
 | ..                               | ..                                                            |
                                    |
 
@@ -63,8 +59,8 @@ The preparation of your local environment is one of the first steps to handle al
 
    ```bash
    $ # sudo mkdir -p /opt/workshop ; cd /opt/workshop
-   $ git clone https://github.com/doitintl/tf-fundamentals-workshop-101.git 
-   $ cd tf-fundamentals-workshop-101 ;
+   $ git clone https://github.com/doitintl/Dataflow-Fundamentals.git 
+   $ cd Dataflow-Fundamentals ;
    ```
 
 2. **GCP Credential Configuration (optional)** 
