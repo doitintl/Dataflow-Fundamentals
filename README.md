@@ -34,7 +34,7 @@ The second day we will dive deeper in streaming pipelines and the different mech
 
 ## Core Requirements
 
-To run the pipelines with Dataflow you need to have a GCP project with billing enabled/
+To run the pipelines with Dataflow you need to have a GCP project with billing enabled.
 
 
 ### Required Tools/Packages
@@ -58,22 +58,23 @@ The preparation of your local environment is one of the first steps to handle al
    Please make sure that work with the latest main-branch version of our labs-repository. If there are changes to the kernel repository during the workshop, you can save the current local change state with `git stash` and get the new state with `git pull`.
 
    ```bash
-   $ # sudo mkdir -p /opt/workshop ; cd /opt/workshop
-   $ git clone https://github.com/doitintl/Dataflow-Fundamentals.git 
-   $ cd Dataflow-Fundamentals ;
+   $ TEMPDIR=/tmp
+   $ cd $TEMPDIR
+   $ git clone https://github.com/doitintl/Dataflow-Fundamentals.git
+   $ cd Dataflow-Fundamentals
    ```
 
 2. **GCP Credential Configuration (optional)** 
 
    Set default GCP credentials and set project
-   ```ini
-   gcloud config init
-   bloud config set project <YOUR PROJECT>
+   ```bash
+   $ gcloud config init
+   $ gcloud config set project <YOUR PROJECT>
    ```
 
 3. **Installation requirements**
 
-   Make sure you are using python 3 and have installed pip.
+   Make sure you are using Python 3 and have installed pip.
 
    ```bash
    $ pip install -r requirements.txt
@@ -81,14 +82,13 @@ The preparation of your local environment is one of the first steps to handle al
 
 4. **INIT/RUN** Lab
 
-   _Go to the corresponding labs sub-directory and follow the corresponding instructions in the documentation stored there!s
+   Go to the corresponding labs sub-directory and follow the corresponding instructions in the documentation stored there!s
 
 ## Links
 
 - https://beam.apache.org/documentation/programming-guide/
 - https://tour.beam.apache.org/
 - https://beam.apache.org/get-started/resources/learning-resources/#getting-started
-- 
 
 ## License
 
