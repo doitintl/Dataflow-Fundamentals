@@ -54,6 +54,35 @@ More info here: https://cloud.google.com/pubsub/docs/emulator#using_the_emulator
 python subscriber.py PUBSUB_PROJECT_ID create audioPlayer audioPlayerPull
 ```
 
+## Run the data simulator
+
+In the dataIngester.py File you need to change the project id on line 8
+If you have chosen for a different topic name you can modify that on line 9.
+
+To create the pubsub topic you can do that by running this command if you have gcloud installed.
+```bash
+ gcloud pubsub topics create audioPlayer
+```
+
+To create the Subscription you can run the following command
+```bash
+gcloud pubsub subscriptions create audioPlayerPull --topic=audioPlayer
+```
+
+When these are created you can start the script by running.
+As long as the script run it wil simulate streaming data.
+NOTE: Close this script when you are done with the lab.
+
+```bash
+python dataIngestor.py 
+```
+
+or 
+
+```bash
+python3 dataIngestor.py 
+```
+
 ## Run the pipeline with direct runner
 replace the placeholder ${PROJECT_ID} with your project id.
 

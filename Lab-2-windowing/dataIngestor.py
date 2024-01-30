@@ -5,7 +5,7 @@ import random
 from time import sleep
 
 # Provide your Google Cloud project ID and Pub/Sub topic name
-project_id = 'geddy-dataflow-playground'
+project_id = '----'
 topic_name = 'audioPlayer'
 
 # gcloud pubsub topics create audioPlayer
